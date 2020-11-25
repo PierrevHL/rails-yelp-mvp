@@ -1,0 +1,13 @@
+<h1>Restaurants#index</h1>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+    <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    <%= link_to restaurant_path(restaurant), method: :delete, data: { confirm: "Delete #{restaurant.name}?"} do %>
+    <%= image_tag("https://img.icons8.com/carbon-copy/100/000000/delete-forever--v1.png", class: "small")  %>
+    <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "+ Add a new restaurant", new_restaurant_path %>
